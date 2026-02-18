@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalentCard — Картотека талантов нового поколения</title>
+  <meta name="description" content="TalentCard — мобильное приложение для видеопрофилей и свайп-поиска кандидатов. Найм за минуты, а не за недели." />
+  <link rel="icon" href="assets/favicon.jpg" type="image/jpeg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Lucide Icons (modern alternative to FA) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#   ">
+        <img src="assets/logo.png" alt="TalentCard" class="nav-logo" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Меню">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#hero">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Возможности</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">Как это работает</a></li>
+          <li class="nav-item"><a class="nav-link" href="#audience">Для кого</a></li>
+          <li class="nav-item"><a class="nav-link" href="#screens">Приложение</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary btn-nav-cta" href="#download">Скачать</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ===================== SECTION 1 — HERO ===================== -->
+  <section class="hero-section" id="hero">
+    <!-- Decorative floating shapes -->
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center min-vh-100 py-5">
+        <!-- Left: Text -->
+        <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="1000">
+          <span class="hero-badge">
+            <span class="badge-dot"></span>
+            Картотека соискателей и вакансий
+          </span>
+          <h1 class="hero-title">
+            Раскройте потенциал с&nbsp;<span class="text-gradient">TalentCard</span>
+          </h1>
+          <p class="hero-subtitle">
+            Управляйте талантами по&#8209;новому
+          </p>
+          <p class="hero-desc">
+            Мобильная платформа для&nbsp;видеопрофилей и&nbsp;подтверждённых навыков.
+            Свайп&#8209;поиск с&nbsp;геолокацией, видео&#8209;питч за&nbsp;30&nbsp;секунд и&nbsp;тысячи
+            анкет специалистов — найм за&nbsp;минуты, а&nbsp;не&nbsp;за&nbsp;недели.
+          </p>
+
+          <div class="hero-buttons">
+            <!-- TODO: заменить # на реальные ссылки App Store / Google Play -->
+            <a href="#" class="store-btn store-btn--dark" aria-label="Скачать в App Store">
+              <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.89C10.1 6.87 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+              <div class="store-text">
+                <small>Загрузите в</small>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="store-btn store-btn--outline" aria-label="Скачать в Google Play">
+              <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67C2.82 23.48 2.5 23.15 2.5 22.5V1.5C2.5 0.85 2.82 0.52 3.18 0.33L13.41 11.5L3.18 23.67ZM14.85 13.12L5.07 22.23L16.97 15.41L14.85 13.12ZM20.16 10.17L17.87 11.5L20.16 13.83C20.63 14.02 20.63 14.53 20.16 14.72L17.01 16.5L14.85 13.12L17.01 7.5L20.16 9.28C20.63 9.47 20.63 9.98 20.16 10.17ZM5.07 1.77L14.85 10.88L16.97 8.59L5.07 1.77Z"/></svg>
+              <div class="store-text">
+                <small>Доступно в</small>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Phone mockup -->
+        <div class="col-lg-6 hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="phone-mockup phone-mockup--hero">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="assets/main-screen.png" alt="Главный экран TalentCard" class="phone-screen-img" />
+              </div>
+            </div>
+            <!-- Glow behind phone -->
+            <div class="phone-glow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 2 — PROBLEM ===================== -->
+  <section class="section section--light" id="problem">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <!-- Left: Image area -->
+        <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
+          <div class="problem-visual">
+            <img src="assets/recruter.png" alt="Рекрутер за работой" class="problem-img" />
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="col-lg-6 offset-lg-1" data-aos="fade-left" data-aos-duration="800">
+          <span class="section-eyebrow">Поиск талантов не эффективен?</span>
+          <h2 class="section-title">
+            Проблема <span class="text-accent">устаревшего</span> подхода
+          </h2>
+          <ul class="problem-list">
+            <li>
+              <div class="problem-list__icon"><i data-lucide="file-warning"></i></div>
+              <div>
+                <strong>Резюме больше не работают</strong>
+                <p>Копипаст, шаблоны, недостоверная информация — невозможно оценить реального кандидата по&nbsp;бумаге.</p>
+              </div>
+            </li>
+            <li>
+              <div class="problem-list__icon"><i data-lucide="clock-alert"></i></div>
+              <div>
+                <strong>Десятки пустых собеседований</strong>
+                <p>Работодатели тратят время и&nbsp;бюджет на&nbsp;встречи с кандидатами, которые не&nbsp;подходят.</p>
+              </div>
+            </li>
+            <li>
+              <div class="problem-list__icon"><i data-lucide="user-x"></i></div>
+              <div>
+                <strong>Сложно выделиться</strong>
+                <p>Соискателям, особенно без&nbsp;опыта, нечем подтвердить свои навыки и&nbsp;мотивацию.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 3 — FEATURES ===================== -->
+  <section class="section section--dark" id="features">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow section-eyebrow--light">Возможности</span>
+        <h2 class="section-title section-title--light">
+          Новый взгляд на&nbsp;управление <span class="text-gradient">талантами</span>
+        </h2>
+        <p class="section-lead section-lead--light">
+          Картотека тысяч специалистов с&nbsp;видеопрофилями, подтверждёнными навыками и&nbsp;мгновенным свайп&#8209;поиском
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--blue">
+              <i data-lucide="id-card"></i>
+            </div>
+            <h3 class="feature-card__title">Структурированные анкеты</h3>
+            <p class="feature-card__text">
+              Не&nbsp;просто резюме — полная карточка: навыки, опыт, языки, график, геолокация и&nbsp;доступность. Всё структурировано для быстрого поиска.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--orange">
+              <i data-lucide="badge-check"></i>
+            </div>
+            <h3 class="feature-card__title">Подтверждённые навыки</h3>
+            <p class="feature-card__text">
+              Сертификаты, грамоты, примеры работ — кандидаты загружают доказательства. Верификация через видео&#8209;селфи и&nbsp;документы.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--blue">
+              <i data-lucide="video"></i>
+            </div>
+            <h3 class="feature-card__title">Видео&#8209;питч 30 сек</h3>
+            <p class="feature-card__text">
+              Каждый кандидат записывает короткое видео: кто он, почему подойдёт, когда готов начать. Живое впечатление вместо сухого текста.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--orange">
+              <i data-lucide="arrow-left-right"></i>
+            </div>
+            <h3 class="feature-card__title">Свайп&#8209;фильтр</h3>
+            <p class="feature-card__text">
+              Мгновенное решение «Да»/«Нет» по&nbsp;каждому кандидату. Работает как Tinder для найма — быстро, удобно, одной рукой.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--blue">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <h3 class="feature-card__title">Геопоиск рядом</h3>
+            <p class="feature-card__text">
+              Ищите кандидатов в&nbsp;радиусе от&nbsp;5 до&nbsp;15&nbsp;км. Идеально для подработок, доставки, ритейла и&nbsp;HoReCa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="feature-card">
+            <div class="feature-card__icon feature-card__icon--orange">
+              <i data-lucide="eye-off"></i>
+            </div>
+            <h3 class="feature-card__title">Anti&#8209;bias подход</h3>
+            <p class="feature-card__text">
+              Сначала работодатель видит навыки и&nbsp;данные без&nbsp;лица. Видео раскрывается только после позитивного свайпа. Честный отбор.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Features — Highlight -->
+      <div class="ai-highlight" data-aos="fade-up" data-aos-delay="100">
+        <div class="ai-highlight__badge">
+          <i data-lucide="sparkles"></i>
+          <span>Встроенный ИИ</span>
+        </div>
+        <div class="row g-4">
+          <!-- AI Feature 1 -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="ai-card">
+              <div class="ai-card__icon">
+                <i data-lucide="brain"></i>
+              </div>
+              <h3 class="ai-card__title">ИИ&#8209;анализ видео&#8209;питча</h3>
+              <p class="ai-card__text">
+                Искусственный интеллект анализирует записанное видео кандидата: оценивает уверенность речи, темп, чёткость подачи — и&nbsp;даёт персональные рекомендации: «говорите увереннее», «добавьте конкретику», «улучшите зрительный контакт».
+              </p>
+              <div class="ai-card__mock">
+                <!--
+                  ========================================================
+                  ИЗОБРАЖЕНИЕ: Экран результата ИИ-анализа видео.
+                  Показывает: превью видео кандидата сверху,
+                  шкала оценки уверенности (78%), рекомендации:
+                  ✓ Хороший темп речи
+                  △ Говорите увереннее
+                  △ Добавьте конкретные примеры
+                  Кнопка «Перезаписать видео».
+                  Файл: assets/ai-video-analysis.png (нужно добавить)
+                  ========================================================
+                -->
+                <div class="ai-mock-result">
+                  <div class="ai-mock-bar"><div class="ai-mock-bar__fill" style="width:78%"></div></div>
+                  <span class="ai-mock-score">Уверенность: 78%</span>
+                  <ul class="ai-mock-tips">
+                    <li class="tip-good">✓ Хороший темп речи</li>
+                    <li class="tip-improve">△ Говорите увереннее</li>
+                    <li class="tip-improve">△ Добавьте конкретные примеры</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- AI Feature 2 -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="ai-card">
+              <div class="ai-card__icon">
+                <i data-lucide="wand-sparkles"></i>
+              </div>
+              <h3 class="ai-card__title">ИИ&#8209;подбор навыков</h3>
+              <p class="ai-card__text">
+                При создании вакансии ИИ автоматически подбирает и&nbsp;предлагает релевантные навыки на&nbsp;основе описания должности. Не&nbsp;нужно вручную перебирать списки — умная подсказка экономит время и&nbsp;повышает точность поиска.
+              </p>
+              <div class="ai-card__mock">
+                <!--
+                  ========================================================
+                  ИЗОБРАЖЕНИЕ: Экран создания вакансии с ИИ-подсказками.
+                  Поле «Должность: Официант», ниже блок
+                  «ИИ рекомендует навыки:» с тегами-чипами:
+                  ✓ Работа с клиентами, ✓ Касса, ✓ HoReCa,
+                  + Коммуникация, + Стрессоустойчивость
+                  Файл: assets/ai-skills-suggest.png (нужно добавить)
+                  ========================================================
+                -->
+                <div class="ai-mock-skills">
+                  <span class="ai-mock-label">Должность: Официант</span>
+                  <span class="ai-mock-sublabel">ИИ рекомендует навыки:</span>
+                  <div class="ai-mock-tags">
+                    <span class="ai-tag ai-tag--active">✓ Работа с клиентами</span>
+                    <span class="ai-tag ai-tag--active">✓ Касса</span>
+                    <span class="ai-tag ai-tag--active">✓ HoReCa</span>
+                    <span class="ai-tag ai-tag--suggest">+ Коммуникация</span>
+                    <span class="ai-tag ai-tag--suggest">+ Стрессоустойчивость</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 4 — HOW IT WORKS ===================== -->
+  <section class="section section--light" id="how-it-works">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Как это работает</span>
+        <h2 class="section-title">
+          Начните за&nbsp;<span class="text-accent">5&nbsp;минут</span>
+        </h2>
+        <p class="section-lead">Интуитивный интерфейс: регистрация и&nbsp;создание профиля — быстрее, чем заварить кофе</p>
+      </div>
+
+      <!-- Tabs: Соискатель / Работодатель -->
+      <div class="hiw-tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="hiw-tab active" data-tab="seeker">Я&nbsp;ищу работу</button>
+        <button class="hiw-tab" data-tab="employer">Я&nbsp;ищу сотрудников</button>
+      </div>
+
+      <!-- Steps: Seeker -->
+      <div class="hiw-content active" id="tab-seeker">
+        <div class="row g-4 justify-content-center">
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="step-card">
+              <div class="step-card__number">1</div>
+              <div class="step-card__icon"><i data-lucide="smartphone"></i></div>
+              <h4 class="step-card__title">Регистрация</h4>
+              <p class="step-card__text">Номер телефона → SMS‑код. Готово за&nbsp;2&nbsp;минуты.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-card">
+              <div class="step-card__number">2</div>
+              <div class="step-card__icon"><i data-lucide="clipboard-list"></i></div>
+              <h4 class="step-card__title">Заполните профиль</h4>
+              <p class="step-card__text">Навыки, опыт, график, желаемая оплата, геолокация.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-card">
+              <div class="step-card__number">3</div>
+              <div class="step-card__icon"><i data-lucide="clapperboard"></i></div>
+              <h4 class="step-card__title">Запишите видео</h4>
+              <p class="step-card__text">30&#8209;секундный питч по&nbsp;подсказкам. Покажите себя живьём.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-card">
+              <div class="step-card__number">4</div>
+              <div class="step-card__icon"><i data-lucide="bell-ring"></i></div>
+              <h4 class="step-card__title">Получайте приглашения</h4>
+              <p class="step-card__text">Работодатели найдут вас и&nbsp;пригласят — отслеживайте статус.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Steps: Employer -->
+      <div class="hiw-content" id="tab-employer">
+        <div class="row g-4 justify-content-center">
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+            <div class="step-card">
+              <div class="step-card__number">1</div>
+              <div class="step-card__icon"><i data-lucide="building-2"></i></div>
+              <h4 class="step-card__title">Профиль компании</h4>
+              <p class="step-card__text">Название, отрасль, локации для&nbsp;геопоиска ваших точек.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-card">
+              <div class="step-card__number">2</div>
+              <div class="step-card__icon"><i data-lucide="plus-circle"></i></div>
+              <h4 class="step-card__title">Создайте вакансию</h4>
+              <p class="step-card__text">Тип, график, оплата, навыки — мастер за&nbsp;пару минут.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-card">
+              <div class="step-card__number">3</div>
+              <div class="step-card__icon"><i data-lucide="scan-search"></i></div>
+              <h4 class="step-card__title">Свайпайте кандидатов</h4>
+              <p class="step-card__text">Анонимные карточки → свайп → видео&#8209;питч после «Да».</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-card">
+              <div class="step-card__number">4</div>
+              <div class="step-card__icon"><i data-lucide="handshake"></i></div>
+              <h4 class="step-card__title">Нанимайте</h4>
+              <p class="step-card__text">Откройте контакты, пригласите и&nbsp;оцените после работы.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 5 — AUDIENCE ===================== -->
+  <section class="section section--accent-gradient" id="audience">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow section-eyebrow--light">Для кого TalentCard</span>
+        <h2 class="section-title section-title--light">
+          Находим подход к&nbsp;каждому
+        </h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="audience-card">
+            <div class="audience-card__icon"><i data-lucide="briefcase-business"></i></div>
+            <h3 class="audience-card__title">Работодатели (B2B)</h3>
+            <p class="audience-card__text">
+              Компании, которым нужен быстрый и&nbsp;честный найм на&nbsp;массовые позиции. Свайп вместо стопки резюме, видео вместо первого собеседования.
+            </p>
+            <ul class="audience-card__tags">
+              <li>Ритейл</li>
+              <li>HoReCa</li>
+              <li>Логистика</li>
+              <li>Производство</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="audience-card audience-card--featured">
+            <div class="audience-card__icon"><i data-lucide="graduation-cap"></i></div>
+            <h3 class="audience-card__title">Студенты и&nbsp;молодёжь</h3>
+            <p class="audience-card__text">
+              Нет опыта — не&nbsp;проблема. Видео&#8209;питч покажет мотивацию, а&nbsp;навыки и&nbsp;сертификаты подтвердят потенциал. Быстрый старт карьеры и&nbsp;подработки.
+            </p>
+            <ul class="audience-card__tags">
+              <li>Подработки</li>
+              <li>Стажировки</li>
+              <li>Первая работа</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="audience-card">
+            <div class="audience-card__icon"><i data-lucide="rocket"></i></div>
+            <h3 class="audience-card__title">Фрилансеры и&nbsp;специалисты</h3>
+            <p class="audience-card__text">
+              Покажите навыки и&nbsp;личный бренд. Структурированный профиль выделит вас среди тысяч однотипных анкет на&nbsp;классических площадках.
+            </p>
+            <ul class="audience-card__tags">
+              <li>Разовые задачи</li>
+              <li>Проектная работа</li>
+              <li>Портфолио</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 6 — APP SCREENS ===================== -->
+  <section class="section section--light" id="screens">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Приложение</span>
+        <h2 class="section-title">
+          Мобильность: работа и&nbsp;кандидаты <span class="text-accent">«на ладони»</span>
+        </h2>
+        <p class="section-lead">Все ключевые сценарии оптимизированы под одну руку, свайпы, большие&nbsp;CTA</p>
+      </div>
+
+      <div class="screens-showcase" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Phone 1 -->
+        <div class="phone-mockup phone-mockup--small">
+          <div class="phone-frame phone-frame--sm">
+            <div class="phone-notch phone-notch--sm"></div>
+            <div class="phone-screen phone-screen--sm">
+                <img src="assets/feed_jobs.png" alt="Лента вакансий" class="phone-screen-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone 2 (center, bigger) -->
+        <div class="phone-mockup phone-mockup--center">
+          <div class="phone-frame phone-frame--md">
+            <div class="phone-notch phone-notch--sm"></div>
+            <div class="phone-screen phone-screen--md">
+                <img src="assets/feed_candidate.png" alt="Поиск кандидатов" class="phone-screen-img" />
+            </div>
+          </div>
+          <div class="phone-glow phone-glow--sm"></div>
+        </div>
+
+        <!-- Phone 3 -->
+        <div class="phone-mockup phone-mockup--small">
+          <div class="phone-frame phone-frame--sm">
+            <div class="phone-notch phone-notch--sm"></div>
+            <div class="phone-screen phone-screen--sm">
+                <img src="assets/profile.png" alt="Профиль кандидата" class="phone-screen-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature pills under phones -->
+      <div class="screen-pills" data-aos="fade-up" data-aos-delay="200">
+        <span class="pill">Свайп-фильтр</span>
+        <span class="pill">Видео-питч</span>
+        <span class="pill">Геопоиск</span>
+        <span class="pill">ИИ-анализ</span>
+        <span class="pill">Шорт-лист</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 7 — STATS / KARTOTEKA ===================== -->
+  <section class="section section--dark" id="kartoteka">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <!-- Left: text -->
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+          <span class="section-eyebrow section-eyebrow--light">Картотека специалистов</span>
+          <h2 class="section-title section-title--light">
+            Тысячи анкет —<br/>один <span class="text-gradient">свайп</span>
+          </h2>
+          <p class="section-lead section-lead--light">
+            TalentCard — это растущая база данных кандидатов с&nbsp;подтверждёнными навыками и&nbsp;видеопрофилями. Полный цикл: от&nbsp;подработки на&nbsp;день до&nbsp;постоянной позиции и&nbsp;фриланса.
+          </p>
+
+          <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+              <span class="stat-number" data-count="30">0</span><span class="stat-suffix">сек</span>
+              <span class="stat-label">Видео-питч</span>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+              <span class="stat-number" data-count="2">0</span><span class="stat-suffix">мин</span>
+              <span class="stat-label">Регистрация</span>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+              <span class="stat-number" data-count="5">0</span><span class="stat-suffix">мин</span>
+              <span class="stat-label">Создание профиля</span>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+              <span class="stat-number" data-count="3">0</span><span class="stat-suffix"></span>
+              <span class="stat-label">Формата: подработка, постоянная, фриланс</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: visual -->
+        <div class="col-lg-5 offset-lg-1" data-aos="fade-left" data-aos-duration="800">
+          <div class="kartoteka-visual">
+            <div class="kartoteka-cards">
+              <div class="k-card k-card--1">
+                <div class="k-avatar">АС</div>
+                <div class="k-info"><strong>Касса · Продажи</strong><br/><small>1.2 км · Доступен сегодня</small></div>
+              </div>
+              <div class="k-card k-card--2">
+                <div class="k-avatar k-avatar--orange">МК</div>
+                <div class="k-info"><strong>Доставка · Курьер</strong><br/><small>3.7 км · Видео-питч</small></div>
+              </div>
+              <div class="k-card k-card--3">
+                <div class="k-avatar">ЕР</div>
+                <div class="k-info"><strong>Официант · HoReCa</strong><br/><small>0.8 км · Доступен сегодня</small></div>
+              </div>
+              <div class="k-card k-card--4">
+                <div class="k-avatar k-avatar--orange">ДВ</div>
+                <div class="k-info"><strong>Склад · Погрузка</strong><br/><small>5.1 км · Видео-питч</small></div>
+              </div>
+              <div class="k-card k-card--5">
+                <div class="k-avatar">ИТ</div>
+                <div class="k-info"><strong>Мерчендайзинг</strong><br/><small>2.4 км · Доступен завтра</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 8 — DOWNLOAD CTA ===================== -->
+  <section class="section section--cta" id="download">
+    <div class="cta-shapes">
+      <div class="cta-shape cta-shape--1"></div>
+      <div class="cta-shape cta-shape--2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content text-center" data-aos="zoom-in" data-aos-duration="800">
+        <img src="assets/logo.png" alt="TalentCard" class="cta-logo" />
+        <h2 class="cta-title">Скачайте TalentCard сегодня</h2>
+        <p class="cta-text">
+          Присоединяйтесь к&nbsp;картотеке нового поколения.<br/>
+          Видеопрофили, свайп&#8209;поиск и&nbsp;подтверждённые навыки — бесплатно на&nbsp;старте.
+        </p>
+
+        <div class="cta-buttons">
+          <!-- TODO: заменить # на реальные ссылки -->
+          <a href="#" class="store-btn store-btn--dark store-btn--lg" aria-label="Скачать в App Store">
+            <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.97 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.89C10.1 6.87 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+            <div class="store-text">
+              <small>Загрузите в</small>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="#" class="store-btn store-btn--outline store-btn--lg" aria-label="Скачать в Google Play">
+            <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.67C2.82 23.48 2.5 23.15 2.5 22.5V1.5C2.5 0.85 2.82 0.52 3.18 0.33L13.41 11.5L3.18 23.67ZM14.85 13.12L5.07 22.23L16.97 15.41L14.85 13.12ZM20.16 10.17L17.87 11.5L20.16 13.83C20.63 14.02 20.63 14.53 20.16 14.72L17.01 16.5L14.85 13.12L17.01 7.5L20.16 9.28C20.63 9.47 20.63 9.98 20.16 10.17ZM5.07 1.77L14.85 10.88L16.97 8.59L5.07 1.77Z"/></svg>
+            <div class="store-text">
+              <small>Доступно в</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a href="#" class="footer-brand mb-3 d-inline-block">
+            <img src="assets/logo.png" alt="TalentCard" class="footer-logo" />
+          </a>
+          <p class="footer-desc">
+            Картотека соискателей и&nbsp;вакансий нового поколения. Видеопрофили, подтверждённые навыки и&nbsp;мгновенный свайп&#8209;поиск.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2 offset-lg-2">
+          <h5 class="footer-heading">Навигация</h5>
+          <ul class="footer-links">
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#features">Возможности</a></li>
+            <li><a href="#how-it-works">Как это работает</a></li>
+            <li><a href="#audience">Для кого</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5 class="footer-heading">Приложение</h5>
+          <ul class="footer-links">
+            <li><a href="#screens">Экраны</a></li>
+            <li><a href="#download">Скачать</a></li>
+            <li><a href="#">App Store</a></li>
+            <li><a href="#">Google Play</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2">
+          <h5 class="footer-heading">Контакты</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.electrolab.kg" target="_blank" rel="noopener">www.electrolab.kg</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <p>&copy; 2025–2026 TalentCard. Все права защищены.</p>
+        <p class="footer-bottom__made">Разработка — <a href="https://www.electrolab.kg" target="_blank" rel="noopener">Electrolab</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
