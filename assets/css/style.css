@@ -1,7 +1,7 @@
 /* ================================================================
-   TalentCard Landing Page — Styles
-   Colors: Primary #0172be · Accent #ff7439
-   ================================================================ */
+  ZealOn Landing Page — Styles
+  Colors: Primary #0172be · Accent #ff7439
+  ================================================================ */
 
 /* ──── CSS Variables ──── */
 :root {
@@ -115,7 +115,19 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
   box-shadow: 0 2px 20px rgba(0,0,0,.06);
 }
 
-.nav-logo { height: 74px; width: auto; }
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.92);
+  color: var(--c-primary);
+  font-weight: 900;
+  font-size: 1.45rem;
+  letter-spacing: .02em;
+}
 .brand-text {
   font-weight: 800;
   font-size: 1.15rem;
@@ -378,6 +390,11 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 }
 .screen-logo { width: 90px; height: 90px; object-fit: contain; }
 .screen-label { font-weight: 800; font-size: 1.3rem; color: var(--c-text); }
+.screen-placeholder-note {
+  font-size: .9rem;
+  color: var(--c-text-secondary);
+  font-weight: 600;
+}
 
 .mock-btn {
   display: block;
@@ -951,12 +968,19 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 .cta-content { position: relative; z-index: 2; }
 
 .cta-logo {
-  height: 160px;
+  min-height: 100px;
+  min-width: 230px;
   margin: 0 auto 24px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.92);
   border-radius: 24px;
   padding: 16px 28px;
+  color: var(--c-primary);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: .02em;
 }
 
 .cta-title {
@@ -997,8 +1021,6 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 }
 
 .footer-brand { text-decoration: none; }
-.footer-logo { height: 110px; width: auto; }
-
 .footer-desc {
   font-size: .88rem;
   color: rgba(255,255,255,.5);
@@ -1326,5 +1348,4 @@ body {
   border: 1px dashed rgba(255,116,57,.4);
 }
 
-/* Footer logo enlarged (no text) */
-.footer-logo { height: 110px; width: auto; }
+/* Footer logo removed from markup */
