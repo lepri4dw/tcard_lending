@@ -1070,19 +1070,6 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
   .screens-showcase { flex-direction: column; gap: 16px; }
   .phone-mockup--small { transform: none; opacity: 1; }
 
-  .kartoteka-visual { min-height: auto; }
-  .kartoteka-cards {
-    position: static;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .k-card {
-    position: static;
-    width: 100%;
-    animation: none;
-  }
 }
 
 @media (max-width: 767.98px) {
@@ -1117,6 +1104,23 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
   .hero-badge { font-size: .72rem; padding: 6px 14px; }
 }
 
+@media (max-width: 479.98px) {
+  .kartoteka-visual {
+    min-height: auto;
+  }
+  .kartoteka-cards {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .k-card {
+    position: static;
+    width: 100%;
+    animation: none;
+  }
+}
 
 /* ================================================================
    ANIMATIONS EXTRAS
