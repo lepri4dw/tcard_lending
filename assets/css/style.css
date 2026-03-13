@@ -274,8 +274,10 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 .store-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 12px 24px;
+  width: 190px;
   border-radius: var(--radius-md);
   font-size: .9rem;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
@@ -305,7 +307,7 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
   color: var(--c-text);
 }
 
-.store-btn--lg { padding: 16px 32px; font-size: 1rem; }
+.store-btn--lg { padding: 12px 24px; font-size: 1rem; }
 
 .store-icon { width: 24px; height: 24px; flex-shrink: 0; }
 .store-text { display: flex; flex-direction: column; line-height: 1.2; }
