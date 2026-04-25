@@ -117,6 +117,24 @@ document.addEventListener('DOMContentLoaded', () => {
       statLabels: ['Видео-питч', 'Регистрация', 'Создание профиля', 'Формата: подработка, постоянная, фриланс'],
       cardTitles: ['Касса · Продажи', 'Доставка · Курьер', 'Официант · HoReCa', 'Склад · Погрузка', 'Мерчендайзинг'],
       cardSubtitles: ['1.2 км · Доступен сегодня', '3.7 км · Видео-питч', '0.8 км · Доступен сегодня', '5.1 км · Видео-питч', '2.4 км · Доступен завтра'],
+      contactEyebrow: 'Корпоративное сотрудничество',
+      contactTitle: 'Для корпоративного сотрудничества напишите нам',
+      contactLead: 'Оставьте контактные данные, и наша команда свяжется с вами для обсуждения интеграции ZealOn в ваши бизнес-процессы.',
+      contactBenefits: [
+        'Ответ в рабочее время в течение дня',
+        'Удобная коммуникация через WhatsApp',
+        'Индивидуальный формат корпоративного сотрудничества'
+      ],
+      contactFormLabels: ['Ваше имя', 'Номер телефона (WhatsApp)', 'Сообщение'],
+      contactFormPlaceholders: ['Например, Айжан Садыкова', '+996 (___) __-__-__', 'Кратко опишите задачу или формат сотрудничества'],
+      contactSubmit: 'Отправить сообщение',
+      contactSubmitSending: 'Отправка...',
+      contactFormErrors: {
+        required: 'Пожалуйста, заполните все поля формы.',
+        phoneInvalid: 'Введите корректный номер WhatsApp в формате +996 (XXX) XX-XX-XX.',
+        failed: 'Не удалось отправить сообщение. Попробуйте еще раз или напишите на zealon@electrolab.kg.'
+      },
+      contactFormStatusSuccess: 'Сообщение отправлено. Спасибо!',
       ctaTitle: 'Скачайте ZealOn сегодня',
       ctaText: 'Присоединяйтесь к картотеке нового поколения.<br/>Видеопрофили, свайп-поиск и подтверждённые навыки — бесплатно на старте.',
       footerDesc: 'Картотека соискателей и вакансий нового поколения. Видеопрофили, подтверждённые навыки и мгновенный свайп-поиск.',
@@ -220,6 +238,24 @@ document.addEventListener('DOMContentLoaded', () => {
       statLabels: ['Video pitch', 'Registration', 'Profile creation', 'Formats: part-time, permanent, freelance'],
       cardTitles: ['Cashier · Sales', 'Delivery · Courier', 'Waiter · HoReCa', 'Warehouse · Loading', 'Merchandising'],
       cardSubtitles: ['1.2 km · Available today', '3.7 km · Video pitch', '0.8 km · Available today', '5.1 km · Video pitch', '2.4 km · Available tomorrow'],
+      contactEyebrow: 'Corporate cooperation',
+      contactTitle: 'Write to us for corporate cooperation',
+      contactLead: 'Leave your contact details and our team will get in touch to discuss integrating ZealOn into your business processes.',
+      contactBenefits: [
+        'Response during business hours within the day',
+        'Convenient communication via WhatsApp',
+        'Individual format for corporate cooperation'
+      ],
+      contactFormLabels: ['Your name', 'Phone number (WhatsApp)', 'Message'],
+      contactFormPlaceholders: ['For example, Aizhan Sadykova', '+996 (___) __-__-__', 'Briefly describe your task or cooperation format'],
+      contactSubmit: 'Send message',
+      contactSubmitSending: 'Sending...',
+      contactFormErrors: {
+        required: 'Please fill in all form fields.',
+        phoneInvalid: 'Enter a valid WhatsApp number in format +996 (XXX) XX-XX-XX.',
+        failed: 'Failed to send the message. Please try again or email zealon@electrolab.kg.'
+      },
+      contactFormStatusSuccess: 'Message sent successfully. Thank you!',
       ctaTitle: 'Download ZealOn today',
       ctaText: 'Join the next-generation talent database.<br/>Video profiles, swipe search, and verified skills — free at launch.',
       footerDesc: 'A next-generation database of candidates and vacancies. Video profiles, verified skills, and instant swipe search.',
@@ -348,6 +384,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setAllText('.stats-grid .stat-label', dict.statLabels);
     setAllText('.kartoteka-cards .k-info strong', dict.cardTitles);
     setAllText('.kartoteka-cards .k-info small', dict.cardSubtitles);
+
+    setText('#corporate-contact .section-eyebrow', dict.contactEyebrow);
+    setText('#corporate-contact .section-title', dict.contactTitle);
+    setText('#corporate-contact .section-lead', dict.contactLead);
+    setAllText('#corporate-contact .corporate-contact-list span', dict.contactBenefits);
+    setAllText('#corporate-contact .corporate-form__label', dict.contactFormLabels);
+    setAllAttr('#corporate-contact .corporate-form__control', 'placeholder', dict.contactFormPlaceholders);
+    setText('#corporate-contact .corporate-form__submit', dict.contactSubmit);
 
     setText('.cta-title', dict.ctaTitle);
     setHTML('.cta-text', dict.ctaText);
@@ -528,6 +572,137 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = 'translateY(20px)';
       card.style.transition = 'opacity .6s ease, transform .6s ease';
       kObserver.observe(card);
+    });
+  }
+
+  /* ──── 12. Corporate contact form (FormSubmit AJAX) ──── */
+  const corporateForm = document.getElementById('corporateForm');
+  const corporateFormStatus = document.getElementById('corporateFormStatus');
+  const corporatePhoneInput = document.getElementById('corp-phone');
+  const corporateSubmitButton = corporateForm ? corporateForm.querySelector('.corporate-form__submit') : null;
+
+  const formatWhatsAppPhone = (rawValue) => {
+    let digits = rawValue.replace(/\D/g, '');
+
+    if (digits.startsWith('996')) {
+      digits = digits.slice(3);
+    } else if (digits.startsWith('0')) {
+      digits = digits.slice(1);
+    }
+
+    digits = digits.slice(0, 9);
+
+    let formatted = '+996';
+    if (digits.length > 0) formatted += ` (${digits.slice(0, 3)}`;
+    if (digits.length >= 3) formatted += ')';
+    if (digits.length > 3) formatted += ` ${digits.slice(3, 5)}`;
+    if (digits.length > 5) formatted += `-${digits.slice(5, 7)}`;
+    if (digits.length > 7) formatted += `-${digits.slice(7, 9)}`;
+
+    return formatted;
+  };
+
+  const normalizeWhatsAppPhone = (rawValue) => {
+    let digits = rawValue.replace(/\D/g, '');
+    if (digits.startsWith('996')) digits = digits.slice(3);
+    if (digits.length !== 9) return null;
+    return `+996${digits}`;
+  };
+
+  const setCorporateFormStatus = (text, variant) => {
+    if (!corporateFormStatus) return;
+
+    corporateFormStatus.textContent = text || '';
+    corporateFormStatus.classList.remove('is-success', 'is-error');
+
+    if (variant === 'success') corporateFormStatus.classList.add('is-success');
+    if (variant === 'error') corporateFormStatus.classList.add('is-error');
+  };
+
+  if (corporatePhoneInput) {
+    corporatePhoneInput.addEventListener('input', () => {
+      corporatePhoneInput.value = formatWhatsAppPhone(corporatePhoneInput.value);
+    });
+
+    corporatePhoneInput.addEventListener('focus', () => {
+      if (!corporatePhoneInput.value.trim()) {
+        corporatePhoneInput.value = '+996';
+      }
+    });
+
+    corporatePhoneInput.addEventListener('blur', () => {
+      if (corporatePhoneInput.value.trim() === '+996') {
+        corporatePhoneInput.value = '';
+      }
+    });
+  }
+
+  if (corporateForm) {
+    corporateForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const activeLang = localStorage.getItem('zealon-lang') === 'en' ? 'en' : 'ru';
+      const dict = translations[activeLang] || translations.ru;
+
+      const name = corporateForm.querySelector('#corp-name').value.trim();
+      const phone = corporateForm.querySelector('#corp-phone').value.trim();
+      const message = corporateForm.querySelector('#corp-message').value.trim();
+
+      if (!name || !phone || !message) {
+        setCorporateFormStatus(dict.contactFormErrors.required, 'error');
+        return;
+      }
+
+      const normalizedPhone = normalizeWhatsAppPhone(phone);
+      if (!normalizedPhone) {
+        setCorporateFormStatus(dict.contactFormErrors.phoneInvalid, 'error');
+        return;
+      }
+
+      const requestSubject = activeLang === 'en'
+        ? 'New corporate cooperation request — ZealOn'
+        : 'Новая заявка на корпоративное сотрудничество — ZealOn';
+
+      if (corporateSubmitButton) {
+        corporateSubmitButton.disabled = true;
+        corporateSubmitButton.textContent = dict.contactSubmitSending;
+      }
+      setCorporateFormStatus('', '');
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/zealon@electrolab.kg', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: requestSubject,
+            _captcha: 'false',
+            _template: 'table',
+            name,
+            phone: normalizedPhone,
+            message
+          })
+        });
+
+        const result = await response.json().catch(() => ({}));
+        const isSuccess = response.ok && (result.success === true || result.success === 'true' || !result.success);
+
+        if (!isSuccess) {
+          throw new Error('Form submit failed');
+        }
+
+        corporateForm.reset();
+        setCorporateFormStatus(dict.contactFormStatusSuccess, 'success');
+      } catch (error) {
+        setCorporateFormStatus(dict.contactFormErrors.failed, 'error');
+      } finally {
+        if (corporateSubmitButton) {
+          corporateSubmitButton.disabled = false;
+          corporateSubmitButton.textContent = dict.contactSubmit;
+        }
+      }
     });
   }
 

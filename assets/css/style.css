@@ -967,6 +967,138 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 
 
 /* ================================================================
+   CORPORATE CONTACT SECTION
+   ================================================================ */
+.section--corporate-contact .section-lead {
+  margin: 0;
+  max-width: 520px;
+}
+
+.corporate-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.corporate-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.corporate-contact-list i {
+  width: 20px;
+  height: 20px;
+  color: var(--c-primary);
+  flex-shrink: 0;
+}
+
+.corporate-form {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.corporate-form__group {
+  margin-bottom: 16px;
+}
+
+.corporate-form__label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #4f6893;
+  margin-bottom: 8px;
+}
+
+.corporate-form__control {
+  width: 100%;
+  border: 1px solid #dbe5f4;
+  border-radius: var(--radius-md);
+  background: #f8fbff;
+  padding: 13px 16px;
+  font-size: .95rem;
+  font-family: var(--font);
+  color: var(--c-text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.corporate-form__control::placeholder {
+  color: #95a4bc;
+}
+
+.corporate-form__control:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 4px rgba(138,50,212,.12);
+  background: var(--c-white);
+}
+
+.corporate-form__control--textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.corporate-form__submit {
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(120deg, var(--c-primary), #006fd8);
+  color: var(--c-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 20px;
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+.corporate-form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,65,192,.28);
+  filter: brightness(1.04);
+}
+
+.corporate-form__submit:disabled {
+  opacity: .75;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+.corporate-form__submit:focus-visible {
+  outline: 2px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+.corporate-form__status {
+  margin: 12px 0 0;
+  min-height: 1.2em;
+  font-size: .82rem;
+  color: #496080;
+  text-align: center;
+  font-weight: 600;
+}
+
+.corporate-form__status.is-success {
+  color: #0d8f45;
+}
+
+.corporate-form__status.is-error {
+  color: #c81e1e;
+}
+
+
+/* ================================================================
    CTA / DOWNLOAD SECTION
    ================================================================ */
 .section--cta {
@@ -1111,6 +1243,10 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 
   .screens-showcase { flex-direction: column; gap: 16px; }
   .phone-mockup--small { transform: none; opacity: 1; }
+
+  .corporate-form {
+    padding: 24px;
+  }
 
 }
 

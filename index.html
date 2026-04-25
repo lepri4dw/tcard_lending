@@ -128,7 +128,7 @@
   <!-- ===================== SECTION 2 — PROBLEM ===================== -->
   <section class="section section--light" id="problem">
     <div class="container">
-      <div class="row align-items-center gy-5">
+      <div class="row align-items-start gy-5">
         <!-- Left: Image area -->
         <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
           <div class="problem-visual">
@@ -629,7 +629,60 @@
   </section>
 
 
-  <!-- ===================== SECTION 8 — DOWNLOAD CTA ===================== -->
+  <!-- ===================== SECTION 8 — CORPORATE CONTACT ===================== -->
+  <section class="section section--light section--corporate-contact" id="corporate-contact">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-5 m-0" data-aos="fade-right" data-aos-duration="800">
+          <span class="section-eyebrow">Корпоративное сотрудничество</span>
+          <h2 class="section-title">Для корпоративного сотрудничества напишите нам</h2>
+          <p class="section-lead">
+            Оставьте контактные данные, и&nbsp;наша команда свяжется с&nbsp;вами для обсуждения интеграции ZealOn в&nbsp;ваши бизнес-процессы.
+          </p>
+
+          <ul class="corporate-contact-list">
+            <li>
+              <i data-lucide="clock-3"></i>
+              <span>Ответ в рабочее время в течение дня</span>
+            </li>
+            <li>
+              <i data-lucide="messages-square"></i>
+              <span>Удобная коммуникация через WhatsApp</span>
+            </li>
+            <li>
+              <i data-lucide="briefcase-business"></i>
+              <span>Индивидуальный формат корпоративного сотрудничества</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6 offset-lg-1" data-aos="fade-left" data-aos-duration="800">
+          <form class="corporate-form" id="corporateForm" novalidate>
+            <div class="corporate-form__group">
+              <label class="corporate-form__label" for="corp-name">Ваше имя</label>
+              <input class="corporate-form__control" type="text" id="corp-name" name="name" placeholder="Например, Айжан Садыкова" required />
+            </div>
+
+            <div class="corporate-form__group">
+              <label class="corporate-form__label" for="corp-phone">Номер телефона (WhatsApp)</label>
+              <input class="corporate-form__control" type="tel" id="corp-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+996 (___) __-__-__" required />
+            </div>
+
+            <div class="corporate-form__group">
+              <label class="corporate-form__label" for="corp-message">Сообщение</label>
+              <textarea class="corporate-form__control corporate-form__control--textarea" id="corp-message" name="message" placeholder="Кратко опишите задачу или формат сотрудничества" required></textarea>
+            </div>
+
+            <button class="corporate-form__submit" type="submit">Отправить сообщение</button>
+            <p class="corporate-form__status" id="corporateFormStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== SECTION 9 — DOWNLOAD CTA ===================== -->
   <section class="section section--cta" id="download">
     <div class="cta-shapes">
       <div class="cta-shape cta-shape--1"></div>
