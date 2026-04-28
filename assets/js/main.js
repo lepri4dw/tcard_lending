@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contactFormErrors: {
         required: 'Пожалуйста, заполните все поля формы.',
         phoneInvalid: 'Введите корректный номер WhatsApp в формате +996 (XXX) XX-XX-XX.',
-        failed: 'Не удалось отправить сообщение. Попробуйте еще раз или напишите на zealon@electrolab.kg.'
+        failed: 'Не удалось отправить сообщение. Попробуйте еще раз чуть позже.'
       },
       contactFormStatusSuccess: 'Сообщение отправлено. Спасибо!',
       ctaTitle: 'Скачайте ZealOn сегодня',
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contactFormErrors: {
         required: 'Please fill in all form fields.',
         phoneInvalid: 'Enter a valid WhatsApp number in format +996 (XXX) XX-XX-XX.',
-        failed: 'Failed to send the message. Please try again or email zealon@electrolab.kg.'
+        failed: 'Failed to send the message. Please try again a bit later.'
       },
       contactFormStatusSuccess: 'Message sent successfully. Thank you!',
       ctaTitle: 'Download ZealOn today',
@@ -575,11 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ──── 12. Corporate contact form (FormSubmit AJAX) ──── */
+  /* ──── 12. Corporate contact form (Google Apps Script) ──── */
   const corporateForm = document.getElementById('corporateForm');
   const corporateFormStatus = document.getElementById('corporateFormStatus');
   const corporatePhoneInput = document.getElementById('corp-phone');
   const corporateSubmitButton = corporateForm ? corporateForm.querySelector('.corporate-form__submit') : null;
+  const corporateFormEndpoint = 'https://script.google.com/macros/s/AKfycbw3c6XVuHRyLpnixXoaa9TI98ngp4hR9XRSm4cO54V2n_Ynkuqfz50dAQwXT-xbPg7h/exec';
 
   const formatWhatsAppPhone = (rawValue) => {
     let digits = rawValue.replace(/\D/g, '');
@@ -659,39 +660,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const requestSubject = activeLang === 'en'
-        ? 'New corporate cooperation request — ZealOn'
-        : 'Новая заявка на корпоративное сотрудничество — ZealOn';
-
       if (corporateSubmitButton) {
         corporateSubmitButton.disabled = true;
         corporateSubmitButton.textContent = dict.contactSubmitSending;
       }
       setCorporateFormStatus('', '');
 
+      const formBody = new URLSearchParams({
+        name,
+        phone: normalizedPhone,
+        message,
+        lang: activeLang,
+        source: 'zealon_web',
+        createdAt: new Date().toISOString()
+      });
+
       try {
-        const response = await fetch('https://formsubmit.co/ajax/zealon@electrolab.kg', {
+        await fetch(corporateFormEndpoint, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: requestSubject,
-            _captcha: 'false',
-            _template: 'table',
-            name,
-            phone: normalizedPhone,
-            message
-          })
+          mode: 'no-cors',
+          body: formBody
         });
-
-        const result = await response.json().catch(() => ({}));
-        const isSuccess = response.ok && (result.success === true || result.success === 'true' || !result.success);
-
-        if (!isSuccess) {
-          throw new Error('Form submit failed');
-        }
 
         corporateForm.reset();
         setCorporateFormStatus(dict.contactFormStatusSuccess, 'success');
