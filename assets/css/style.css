@@ -1224,6 +1224,370 @@ a { text-decoration: none; color: inherit; transition: color var(--transition); 
 
 
 /* ================================================================
+   LEGAL PAGES (Privacy Policy, Delete Account)
+   ================================================================ */
+.legal-page {
+  padding: 120px 0 80px;
+  background: var(--c-light-bg);
+  min-height: 100vh;
+}
+
+.legal-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.legal-card {
+  background: var(--c-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: clamp(28px, 5vw, 56px);
+  border: 1px solid var(--c-border);
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--c-text-secondary);
+  margin-bottom: 28px;
+  transition: color var(--transition);
+}
+.legal-back:hover { color: var(--c-primary); }
+
+.legal-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: var(--c-text);
+}
+
+.legal-subtitle {
+  font-size: 1.05rem;
+  color: var(--c-text-secondary);
+  margin-bottom: 32px;
+}
+
+.legal-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 20px 24px;
+  background: var(--c-light-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+
+.legal-meta-item {
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.legal-meta-item strong {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--c-text-secondary);
+  margin-bottom: 4px;
+}
+.legal-meta-item a {
+  color: var(--c-primary);
+  word-break: break-all;
+}
+.legal-meta-item a:hover { text-decoration: underline; }
+
+.legal-summary {
+  padding: 24px 28px;
+  background: var(--c-primary-light);
+  border-left: 4px solid var(--c-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 40px;
+}
+.legal-summary h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: var(--c-primary-dark);
+}
+.legal-summary p,
+.legal-summary li {
+  font-size: .95rem;
+  color: var(--c-text);
+  line-height: 1.7;
+}
+.legal-summary ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.legal-summary li + li { margin-top: 10px; }
+
+.legal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 40px 0 16px;
+  padding-top: 8px;
+  color: var(--c-text);
+}
+.legal-content h2:first-child { margin-top: 0; }
+
+.legal-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 24px 0 10px;
+  color: var(--c-text);
+}
+
+.legal-content p {
+  font-size: .95rem;
+  color: var(--c-text-secondary);
+  margin-bottom: 14px;
+  line-height: 1.75;
+}
+
+.legal-content ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+.legal-content li {
+  font-size: .95rem;
+  color: var(--c-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.legal-content a {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-content a:hover { color: var(--c-primary-dark); }
+
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.legal-table th,
+.legal-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--c-border);
+  vertical-align: top;
+}
+.legal-table th {
+  background: var(--c-light-bg);
+  font-weight: 700;
+  color: var(--c-text);
+  white-space: nowrap;
+}
+.legal-table tr:last-child td { border-bottom: none; }
+.legal-table td { color: var(--c-text-secondary); }
+
+.legal-contact-block {
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: var(--c-light-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+}
+.legal-contact-block h2 {
+  margin-top: 0 !important;
+  font-size: 1.1rem !important;
+}
+.legal-contact-block p {
+  margin-bottom: 6px;
+}
+
+/* Delete account page */
+.legal-section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  color: var(--c-text);
+}
+.legal-section-title + .delete-steps { margin-top: 0; }
+
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-primary-light);
+  color: var(--c-primary);
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.delete-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  counter-reset: step;
+}
+.delete-steps li {
+  position: relative;
+  padding: 20px 20px 20px 64px;
+  background: var(--c-light-bg);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  border: 1px solid var(--c-border);
+  counter-increment: step;
+}
+.delete-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-primary);
+  color: var(--c-white);
+  font-weight: 800;
+  font-size: .9rem;
+  border-radius: 50%;
+}
+.delete-steps li strong {
+  display: block;
+  font-size: .95rem;
+  color: var(--c-text);
+  margin-bottom: 4px;
+}
+.delete-steps li span {
+  font-size: .88rem;
+  color: var(--c-text-secondary);
+}
+
+.delete-option-card {
+  padding: 24px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.delete-option-card:hover {
+  border-color: var(--c-primary);
+  box-shadow: var(--shadow-sm);
+}
+.delete-option-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--c-text);
+}
+.delete-option-card p {
+  font-size: .9rem;
+  color: var(--c-text-secondary);
+  margin: 0 0 16px;
+}
+
+.delete-warning {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  background: #fff8e6;
+  border: 1px solid #f5d76e;
+  border-radius: var(--radius-md);
+  margin: 24px 0;
+}
+.delete-warning-icon {
+  flex-shrink: 0;
+  color: #b8860b;
+  margin-top: 2px;
+}
+.delete-warning p {
+  margin: 0;
+  font-size: .9rem;
+  color: #5c4a00;
+  line-height: 1.6;
+}
+
+.delete-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.delete-info-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  font-size: .9rem;
+  color: var(--c-text-secondary);
+}
+.delete-info-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--c-primary);
+  border-radius: 50%;
+}
+
+.btn-legal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-primary);
+  color: var(--c-white) !important;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-lg);
+  border: none;
+  text-decoration: none !important;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.btn-legal:hover {
+  background: var(--c-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(138,50,212,.35);
+  color: var(--c-white) !important;
+}
+
+.btn-legal-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--c-primary) !important;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 11px 23px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--c-primary);
+  text-decoration: none !important;
+  transition: background var(--transition), color var(--transition);
+}
+.btn-legal-outline:hover {
+  background: var(--c-primary-light);
+  color: var(--c-primary-dark) !important;
+}
+
+.legal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 
